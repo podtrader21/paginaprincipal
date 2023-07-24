@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MoneyAI</title>
+ <!-- Adicione o link do favicon abaixo -->
+  <link rel="icon" href="https://document-export.canva.com/62AJ8/DAFpXw62AJ8/2/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20230722%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230722T234533Z&X-Amz-Expires=59809&X-Amz-Signature=54ec06792617417a361f23d13b1b93f8fc890e7e1d8b4fdf27ff2f85929de065&X-Amz-SignedHeaders=host&response-expires=Sun%2C%2023%20Jul%202023%2016%3A22%3A22%20GMT" type="image/x-icon">
+  <style>
+    /* Estilos gerais */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000; /* Fundo preto */
+      color: #fff;
+      text-align: center;
+    }
+
+    /* Estilos para o container das calculadoras */
+    .container {
+      max-width: 1200px; /* Largura máxima do container */
+      margin: 0 auto; /* Centraliza o container na página */
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    /* Estilos para cada calculadora */
+    .calculator {
+      flex-basis: calc(25% - 20px);
+      margin: 10px;
+      padding: 20px;
+      box-sizing: border-box; /* Inclui a margem e o preenchimento na largura total */
+    }
+
+    /* Estilos específicos para a segunda calculadora com texto branco */
+    .calculator.white-text {
+      color: #fff; /* Letra branca */
+    }
+
+    /* Estilos para a seção de espelhamento */
+    .iframe-container {
+      flex-basis: 100%;
+      margin-top: 10px;
+      height: 700px; /* Definindo a altura para 800px */
+    }
+
+    iframe {
+      width: 80%;
+      height: 80%; /* Definindo a altura do iframe para 100% da div pai */
+      border: none;
+    }
+
+    /* Estilos para a logo */
+    .logo {
+      max-width: 200px; /* Tamanho máximo da logo */
+      margin: 10px auto; /* Centraliza a logo horizontalmente com margem de 10px no topo */
+    }
+
+    /* Estilos para a mensagem de atenção */
+    .attention-message {
+      font-size: 20px;
+      font-weight: bold;
+      color: #fff;
+      animation: pulsar 2s ease-in-out infinite; /* Adiciona a animação "pulsar" */
+      margin-bottom: 20px; /* Espaçamento inferior para separar do espelhamento de página */
+    }
+
+    /* Definição da animação "pulsar" */
+    @keyframes pulsar {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    /* Estilos específicos para a faixa azul no resultado */
+    .blue-result {
+      background-color: #0000FF;
+      padding: 10px;
+    }
+
+    /* Estilos específicos para a faixa vermelha no resultado */
+    .red-result {
+      background-color: #FF0000;
+      padding: 10px;
+    }
+
+    /* Estilos específicos para a faixa verde no resultado */
+    .green-result {
+      background-color: #00FF00; /* Verde */
+      padding: 10px;
+    }
+
+    /* Estilos específicos para a faixa roxa no resultado */
+    .purple-result {
+      background-color: #800080; /* Roxo */
+      padding: 10px;
+    }
+
+    /* Estilos específicos para a faixa amarela no resultado */
+    .yellow-result {
+      background-color: #FFFF00; /* Amarelo */
+      padding: 10px;
+    }
+
+    /* Estilos para a seção de resultado da terceira calculadora (IA Dragon) */
+    .resultado {
+      height: 100px; /* Ajuste a altura conforme necessário */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="welcome-message attention-message">
+    Seja bem-vindo à nova era da IA
+  </div>
+
+  <!-- Áudio para reproduzir o som de clique -->
+  <audio id="clickSound">
+    <source src="https://drive.google.com/uc?id=1hjYBk4kDXFl2u6qSUFMQRqSbJrHtN4l0" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <script>
+    // Função para exibir a mensagem por 3 segundos
+    function showWelcomeMessage() {
+      var welcomeMessage = document.querySelector(".welcome-message");
+      welcomeMessage.style.display = "block"; // Exibir a mensagem
+
+      setTimeout(function () {
+        welcomeMessage.style.display = "none"; // Ocultar a mensagem após 3 segundos
+      }, 3000); // 3000 milissegundos = 3 segundos
+    }
+
+    // Função para mostrar a mensagem "IA procurando uma jogada" por 5 segundos
+    function mostrarMensagemIA(resultadoElement) {
+      resultadoElement.innerText = "IA procurando uma jogada";
+
+      setTimeout(function () {
+        calcularResultado(resultadoElement);
+      }, 5000); // 5000 milissegundos = 5 segundos
+    }
+
+    // Função para reproduzir o som de clique
+    function playClickSound() {
+      const clickSound = document.getElementById('clickSound');
+      clickSound.play();
+    }
+
+    // Função para calcular o resultado da primeira calculadora
+    function calcularResultado(resultadoElement) {
+      playClickSound(); // Reproduzir o som de clique
+
+      // Restante do código para calcular o resultado...
+    }
+
+    // Função para calcular o resultado da segunda calculadora
+    function calcularResultado2(resultadoElement) {
+      playClickSound(); // Reproduzir o som de clique
+
+      // Restante do código para calcular o resultado...
+    }
+
+    // Função para calcular o resultado da terceira calculadora (IA Dragon)
+    function calcularResultado(resultadoElement) {
+      playClickSound(); // Reproduzir o som de clique
+
+      let randomValue = Math.random();
+
+      const probabilidadeAzul = 0.2; // 5% de chance de azul
+      const probabilidadeVermelho = 0.3; // 10% de chance de vermelho
+      const probabilidadeVerde = 0.1; // 1% de chance de verde
+      const probabilidadeAmarelo = 0.1; // 1% de chance de amarelo
+      const probabilidadeRoxo = 0.1; // 98% de chance de roxo
+
+      if (randomValue < probabilidadeAzul) {
+        resultadoElement.innerHTML = '<p class="color-text">Entrar na cor azul</p>';
+        resultadoElement.classList.remove('red-result', 'green-result', 'purple-result', 'yellow-result', 'white-result');
+        resultadoElement.classList.add('blue-result');
+      } else if (randomValue < probabilidadeAzul + probabilidadeVermelho) {
+        resultadoElement.innerHTML = '<p class="color-text">Entrar na cor vermelha</p>';
+        resultadoElement.classList.remove('blue-result', 'green-result', 'purple-result', 'yellow-result', 'white-result');
+        resultadoElement.classList.add('red-result');
+      } else if (randomValue < probabilidadeAzul + probabilidadeVermelho + probabilidadeVerde) {
+        resultadoElement.innerHTML = '<p class="color-text">Entrar no tie</p>';
+        resultadoElement.classList.remove('blue-result', 'red-result', 'purple-result', 'yellow-result', 'white-result');
+        resultadoElement.classList.add('green-result');
+      } else {
+        resultadoElement.innerHTML = '<p class="color-text">IA está trabalhando em uma entrada</p>';
+        resultadoElement.classList.remove('blue-result', 'red-result', 'green-result', 'yellow-result', 'white-result');
+        resultadoElement.classList.add('purple-result');
+      }
+
+      setTimeout(function () {
+        resultadoElement.innerHTML = '<p class="color-text">-</p>';
+        resultadoElement.classList.remove('blue-result', 'red-result', 'green-result', 'yellow-result', 'white-result', 'purple-result');
+      }, 15000); // 15000 milissegundos = 15 segundos
+    }
+
+    // Chamando a função showWelcomeMessage para exibir a mensagem
+    showWelcomeMessage();
+  </script>
+
+  <a id="topo"></a> <!-- Âncora para abrir a página no topo -->
+  <img class="logo" src="https://document-export.canva.com/62AJ8/DAFpXw62AJ8/2/thumbnail/0001.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAQYCGKMUHWDTJW6UD%2F20230721%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230721T234533Z&X-Amz-Expires=63409&X-Amz-Signature=c07d282ad02dd6008bd5e68962322b9b6f5f06219b62e14311976d8cad008c03&X-Amz-SignedHeaders=host&response-expires=Sat%2C%2022%20Jul%202023%2017%3A22%3A22%20GMT" alt="MoneyAI Logo"> <!-- Substitua "LOGO_URL" pelo URL da imagem do logotipo -->
+  <div class="container">
+    <!-- Calculadora 1 -->
+    <div class="calculator">
+      <h1>IA DADOS</h1>
+      <button onclick="mostrarMensagemIA(document.getElementById('resultado'))">Obter Entrada</button>
+      <p class="resultado" id="resultado">-</p>
+    </div>
+
+    <!-- Calculadora 2 -->
+    <div class="calculator white-text">
+      <h1>IA DOUBLE</h1>
+      <button onclick="mostrarMensagemIA(document.getElementById('resultado2'))">Obter Entrada</button>
+      <p class="resultado" id="resultado2">-</p>
+    </div>
+
+    <!-- Calculadora 3 (IA football) -->
+    <div class="calculator">
+      <h1>IA FOOTBALL</h1>
+      <button onclick="mostrarMensagemIA(document.getElementById('resultadoDragonTiger'))" style="margin-bottom: 12px;">Obter Entrada</button>
+      <div class="resultado" id="resultadoDragonTiger">
+        <p class="color-text">-</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Espelhamento de site -->
+  <div class="iframe-container">
+    <iframe src="https://9f.com/r/PXrGBosV" frameborder="0"></iframe>
+  </div>
+
+  <!-- Link para retornar ao topo da página -->
+  <!-- Botões sociais -->
+  <div class="social-buttons">
+    <a class="social-button Telegram-button" href="https://t.me/+-IRE2GNDK1U0YzRh" target="_blank">
+      <i class="fab fa-telegram"></i> Telegram
+    </a>
+    <a class="social-button whatsapp-button" href="https://api.whatsapp.com/send?phone=44997383279" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a class="social-button Instagram-button" href="https://www.instagram.com/https://www.instagram.com/ademilson_212//ademilson_212/" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a class="social-button youtube-button" href="https://www.youtube.com/c/https://www.youtube.com/channel/UC39TmNBpx7PEpBowlh3MODg" target="_blank">
+      <i class="fab fa-youtube"></i> YouTube
+    </a>
+  </div>
+  <p><a href="#topo">Voltar ao topo</a></p>
+<script>
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Resto do cabeçalho... -->
+</head>
+<body>
+  <div class="welcome-message attention-message">
+    Seja bem-vindo à nova era da IA
+  </div>
+
+  <!-- Resto do conteúdo... -->
+
+  <script>
+    // Função para verificar se o usuário está logado
+    function verificarLogin() {
+      // Coloque aqui a lógica para verificar se o usuário está logado.
+      // Se o usuário não estiver logado, redirecione-o para a página de login.
+      const usuarioLogado = false; // Defina como "true" caso o usuário esteja logado.
+
+      if (!usuarioLogado) {
+        window.location.href = "https://podtrader21.github.io/moneyIA/"; // Substitua "https://podtrader21.github.io/moneyIA/" pela URL da sua página de login.
+      }
+    }
+
+    // Chamando a função para verificar o login assim que a página for carregada
+    window.onload = verificarLogin;
+  </script>
+
+  <!-- Restante do seu código... -->
+
+</body>
+</html>
+
+</body>
+</html> 
